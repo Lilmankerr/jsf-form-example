@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+    <style type="text/css">
+        body {
+            width: 100%;
+        }
+    </style>
+
+
+    <h:form>
+        <p:commandButton value="Register New User" action="#{helloView.goToSpotlight}" style="margin-right:20px;"/>
+        <p:commandButton value="Clients" action="#{helloView.goToDatatable}" style="margin-right:20px;" ajax="false" />
+    </h:form>
+
+</h:body>
+</html>

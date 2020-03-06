@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <p:panel id="panel" header="New User">
+
+            <p:messages id="msgs" />
+
+            <h:panelGrid columns="3" cellpadding="5">
+                <p:outputLabel for="firstname" value="First Name:" />
+                <p:inputText id="firstname" value="#{spotlightView.firstName}" required="true" label="firstname">
+                    <f:validateLength minimum="2" />
+                    <f:validator validatorId="nameValidator" />
+                    <p:ajax update="msgusername" event="keyup" />
+                </p:inputText>
+                <p:message for="firstname" id="msgusername" display="icon" />
+
+                <p:outputLabel for="lastname" value="Last Name: "/>
+                <p:inputText id="lastname" value="#{spotlightView.lastName}" label="lastname" required="true">
+                    <f:validateLength minimum="2" />
+                    <f:validator validatorId="nameValidator" />
+                    <p:ajax update="msglast" event="keyup" />
+                </p:inputText>
+                <p:message for="lastname" id="msglast" display="icon" />
+
+                <p:outputLabel for="dob" value="Date of Birth: "/>
+                <p:inputText id="dob" value="#{spotlightView.dob}" label="dob">
+
+                </p:inputText>
+                <p:message for="dob" id="msgdob" display="icon" />
+
+
+                <p:outputLabel for="email" value="Email:" />
+                <p:inputText id="email" value="#{spotlightView.email}" label="email" required="true">
+                    <f:validator validatorId="emailValidator" />
+                    <p:ajax update="msgemail" event="keyup" />
+                </p:inputText>
+                <p:message for="email" id="msgemail" display="icon" />
+
+                <p:outputLabel for="occupation" value="Occupation: "/>
+                <p:inputText id="occupation" value="#{spotlightView.occupation}" label="occupation" required="true">
+                    <f:validator validatorId="occupationValidator" />
+                    <p:ajax update="msgoccupation" event="keyup" />
+                </p:inputText>
+                <p:message for="occupation" id="msgoccupation" display="icon" />
+
+
+            </h:panelGrid>
+
+            <p:commandButton value="Save" update="panel" action="#{spotlightView.save}" icon="pi pi-check" />
+        </p:panel>
+    </h:form>
+</h:body>
+</html>
